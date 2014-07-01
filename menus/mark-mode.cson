@@ -2,7 +2,7 @@
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'Emacs Mode'
+      'label': 'Mark Mode'
       'submenu': [
         { 'label': 'Toggle', 'command': 'mark-mode:toggle' }
       ]
