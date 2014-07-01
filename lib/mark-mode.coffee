@@ -3,6 +3,10 @@
 EmacsMark = require './mark'
 
 module.exports =
+  deactivate: ->
+
+  serialize: ->
+
   activate: (state) ->
 
     atom.workspaceView.eachEditorView (editorView) =>
@@ -11,12 +15,7 @@ module.exports =
       editorView.command 'mark-mode:recenter', => @recenter editorView
       editorView.command 'mark-mode:clear-selection', => @clearSelection editorView
 
-      editorView.on 'core:cancel', => editorView.trigger 'mark-mode:clear-selection'      
-
-
-  deactivate: ->
-
-  serialize: ->
+      editorView.on 'core:cancel', => editorView.trigger 'mark-mode:clear-selection'
 
   clearSelection: (editorView) ->
     editor = editorView.getEditor()
@@ -24,10 +23,22 @@ module.exports =
 
   recenter: (editorView) ->
     cursorPos = editorView.getEditor().getCursorScreenPosition()
-    rows = editorView.getPageRows()
+    pageRows = editorView.getPageRows()
 
-    topRow = cursorPos.row - parseInt(rows / 2)
-    topPos = editorView.getEditor().clipScreenPosition [topRow, 0]
+    topWhenCenter = cursorPos.row - parseInt(pageRows / 2) - 1
+    topWhenTop = cursorPos.row
+    topWhenBottom = cursorPos.row - pageRows + 1
+
+    firstVisibleRow = editorView.getFirstVisibleScreenRow()
+
+    topPos =
+      switch firstVisibleRow
+        when topWhenCenter
+          editorView.getEditor().clipScreenPosition [topWhenTop, 0]
+        when topWhenTop
+          editorView.getEditor().clipScreenPosition [topWhenBottom, 0]
+        else
+          editorView.getEditor().clipScreenPosition [topWhenCenter, 0]
 
     pix = editorView.pixelPositionForScreenPosition topPos
     editorView.scrollTop pix.top
