@@ -1,12 +1,12 @@
 {
-  "name": "emacs-mode",
-  "main": "./lib/emacs",
-  "version": "0.0.26",
-  "description": "Enjoy a mouse-free Emacs experience on a modern editor.",
+  "name": "mark-mode",
+  "main": "./lib/mark-mode",
+  "version": "0.0.1",
+  "description": "The set-mark command from emacs for Atom editor",
   "activationEvents": [
-    "emacs:toggle"
+    "mark-mode:toggle"
   ],
-  "repository": "https://github.com/fuqcool/atom-emacs-mode.git",
+  "repository": "https://github.com/matsumonkie/atom-emacs-mark.git",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"

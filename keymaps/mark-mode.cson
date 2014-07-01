@@ -1,0 +1,9 @@
+'.editor.emacs-marking':
+  'right': 'core:select-right'
+  'left':  'core:select-left'
+  'up':    'core:select-up'
+  'down':  'core:select-down'
+
+'.platform-win32 .editor, .platform-linux .editor':
+  'ctrl-e': 'mark-mode:set-mark'
+  'ctrl-l': 'mark-mode:recenter'

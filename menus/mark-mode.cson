@@ -4,7 +4,7 @@
     'submenu': [
       'label': 'Emacs Mode'
       'submenu': [
-        { 'label': 'Toggle', 'command': 'emacs-mode:toggle' }
+        { 'label': 'Toggle', 'command': 'mark-mode:toggle' }
       ]
     ]
   }
