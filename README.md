@@ -27,7 +27,6 @@ atom.packages.enablePackage('mark-mode').activateNow()
 
 '.platform-win32 .editor, .platform-linux .editor':
   'ctrl-e': 'mark-mode:set-mark'
-  'ctrl-l': 'mark-mode:recenter'
 ```
 
 ## Contribution
