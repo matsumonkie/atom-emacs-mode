@@ -6,7 +6,7 @@
   "activationEvents": [
     "mark-mode:toggle"
   ],
-  "repository": "https://github.com/matsumonkie/atom-emacs-mark.git",
+  "repository": "https://github.com/matsumonkie/atom-mark-mode.git",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
